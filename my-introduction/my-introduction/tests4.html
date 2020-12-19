@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Function start</title>
+    <style>
+      .msgBox {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 200px;
+        background: #eee;
+      }
+
+      .msgBox p {
+        line-height: 1.5;
+        padding: 10px 20px;
+        color: #333;
+      }
+
+      .msgBox button {
+        background: none;
+        border: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 1.1rem;
+        color: #aaa;
+      }
+
+    </style>
+  </head>
+  <body>
+    <button>Display message box</button>
+
+    <script>
+function hide(e){
+  e.currentTarget.style.visibility = "hidden";
+  console.log(e.currentTarget);
+  // 该函数用作事件处理器时: this === e.currentTarget
+}
+
+var ps = document.getElementsByTagName('p');
+
+for(var i = 0; i < ps.length; i++){
+  // console: 打印被点击的p元素
+  ps[i].addEventListener('click', hide, false);
+}
+// console: 打印body元素
+document.body.addEventListener('click', hide, false);
+    </script>
+  </body>
+</html>
